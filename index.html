@@ -8,27 +8,36 @@
 
 <body>
     <center><h1><strong>Did Leonardo Da Vinci Invent This?</strong></h1></center>
-  	<center><h4>Version 0.3</h4></center>
+    <center><h4>Version 0.4</h4></center>
 
     <center>
         <script>
             var ended = false;
 
-            var values = ["Parachute", "Flying Machine", "Printing Press", "Self Propelled Cart", "Tank", "Diving Suit", "Submarine", "Helicopter", "Longbow", "Giant Crossbow", "Anemometer", "Gun", "Machine Gun"];
+            var values = ["Parachute", "Flying Machine", "Printing Press", "Self Propelled Cart", "Tank", "Diving Suit", "Submarine", "Helicopter", "Longbow", "Giant Crossbow", "Anemometer", "Gun", "Machine Gun", "Telescope", "Water Thermometer", "Adding Machine", "Pocket Watch", "Compound Microscope"];
 
+
+            //TRUE
             var parachute = true;
             var flyingmachine = true;
-            var printingpress = false;
             var selfpropelledcart = true;
             var tank = true;
             var divingsuit = true;
-            var submarine = false;
             var helicopter = true;
-            var longbow = false;
             var giantcrossbow = true;
             var anemometer = true;
-            var gun = false;
             var machinegun = true;
+
+            //FALSE
+            var telescope = false;
+            var waterthermometer = false;
+            var addingmachine = false;
+            var pocketwatch = false;
+            var gun = false;
+            var longbow = false;
+            var submarine = false;
+            var printingpress = false;
+            var compoundmicroscope = false;
 
             var currentValue;
 
@@ -71,6 +80,16 @@
                     answer = gun;
                 } else if (currentValue == "Machine Gun") {
                     answer = machinegun;
+                } else if (currentValue == "Telescope"){
+                    answer = telescope;
+                } else if (currentValue == "Water Thermometer"){
+                    answer = waterthermometer;
+                } else if (currentValue == "Adding Machine"){
+                    answer = addingmachine;
+                } else if (currentValue == "Pocket Watch"){
+                    answer = pocketwatch;
+                } else if (currentValue == "Compound Microscope"){
+                    answer = compoundmicroscope;
                 }
 
                 if (currentValue == "Machine Gun") {
