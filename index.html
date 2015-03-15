@@ -1,70 +1,94 @@
 <html>
-   <head>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-   </head>
-    <body>
-   	 <center><h1><strong>Did Leonardo Da Vinci Invent This?</strong></h1></center>
-   	 
-   	 <center><script>
-   		var ended = false;
-   		 
-   		var parachute = true;
-   		var flyingmachine = true;
-   		var printingpress = false;
-   		var selfpropelledcart = true;
-   		var tank = true;
-        var divingsuit = true;
-        var submarine = false;
-        var helicopter = true;
-        var longbow = false;
-        var giantcrossbow = true;
-        var anemometer = true;
-        var gun = false;
-        var machinegun = true;
-         
 
-   		var currentValue = "";
-   		var answer;
-   		var response;
-        var score = 0;
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
 
-   		 while(!ended){
-   			 var rand = Math.floor((Math.random() * 10) + 1);
-    
+<body>
+    <center>
+        <h1><strong>Did Leonardo Da Vinci Invent This?</strong></h1></center>
 
-   			 if(rand > 0 && rand < 2){
-   				 currentValue = "Parachute";
-   				 answer = parachute;
-   			 }else if(rand > 2 && rand < 4){
-   				 currentValue = "Flying Machine";
-   				 answer = flyingmachine;
-   			 }else if(rand > 4 && rand < 6){
-   				 currentValue = "Printing Press";
-   				 answer = printingpress;
-   			 }else if(rand > 6 && rand < 8){
-   				 currentValue = "Self-Propelled Cart";
-   				 answer = selfpropelledcart;
-   			 }else if(rand){
-   				 currentValue = "Tank";
-   				 answer = tank;
-   			 }
+    <center>
+        <script>
+            var ended = false;
 
-   			if(currentValue == "Machine Gun"){
-               var c = confirm("Did Da Vinci invent the " + currentValue + "? (Also called the 33-barrelled organ)");
-            }else{
-               var c = confirm("Did Da Vinci invent the " + currentValue + "?");
+            var values = ["Parachute", "Flying Machine", "Printing Press", "Self Propelled Cart", "Tank", "Diving Suit", "Submarine", "Helicopter", "Longbow", "Giant Crossbow", "Anemometer", "Gun", "Machine Gun"];
+
+            var parachute = true;
+            var flyingmachine = true;
+            var printingpress = false;
+            var selfpropelledcart = true;
+            var tank = true;
+            var divingsuit = true;
+            var submarine = false;
+            var helicopter = true;
+            var longbow = false;
+            var giantcrossbow = true;
+            var anemometer = true;
+            var gun = false;
+            var machinegun = true;
+
+            var currentValue;
+
+            //SELECT RANDOM VALUE FROM ARRAY
+            var inventions = function() {
+                currentValue = values[Math.floor(Math.random() * values.length)];
+                return currentValue;
+            };
+
+            var answer;
+            var response;
+            var score = 0;
+
+            while (!ended) {
+                inventions();
+
+                if (currentValue == "Parachute") {
+                    answer = parachute;
+                } else if (currentValue == "Flying Machine") {
+                    answer = flyingmachine;
+                } else if (currentValue == "Printing Press") {
+                    answer = printingpress;
+                } else if (currentValue == "Self-Propelled Cart") {
+                    answer = selfpropelledcart;
+                } else if (currentValue == "Tank") {
+                    answer = tank;
+                } else if (currentValue == "Diving Suit") {
+                    answer = divingsuit;
+                } else if (currentValue == "Submarine") {
+                    answer = submarine;
+                } else if (currentValue == "Helicopter") {
+                    answer = helicopter;
+                } else if (currentValue == "Longbow") {
+                    answer = longbow;
+                } else if (currentValue == "Giant Crossbow") {
+                    answer = giantcrossbow;
+                } else if (currentValue == "Anemometer") {
+                    answer = anemometer;
+                } else if (currentValue == "Gun") {
+                    answer = gun;
+                } else if (currentValue == "Machine Gun") {
+                    answer = machinegun;
+                }
+
+                if (currentValue == "Machine Gun") {
+                    var c = confirm("Did Da Vinci invent the " + currentValue + "? (Also called the 33-barrelled organ)");
+                } else {
+                    var c = confirm("Did Da Vinci invent the " + currentValue + "?");
+                }
+
+                if (c == answer) {
+                    score++;
+                } else {
+                    break;
+                }
             }
 
-   			 if(c == answer){
-   				 score++;
-   			 }else{
-                break;
-   			 }
-   		 }
+            document.write("<h2>Nice. You lost with " + score + " points.</h2>");
+        </script>
+    </center>
+</body>
 
-          document.write("<h2>Nice. You lost with " + score + " points.</h2>");
-   	 </script></center>
-    </body>    
 </html>
