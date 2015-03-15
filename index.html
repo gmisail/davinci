@@ -1,0 +1,70 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+   </head>
+    <body>
+   	 <center><h1><strong>Did Leonardo Da Vinci Invent This?</strong></h1></center>
+   	 
+   	 <center><script>
+   		 var ended = false;
+   		 
+   		 var parachute = true;
+   		 var flyingmachine = true;
+   		 var printingpress = false;
+   		 var selfpropelledcart = true;
+   		 var tank = true;
+        var divingsuit = true;
+          var submarine = false;
+          var helicopter = true;
+          var longbow = false;
+          var giantcrossbow = true;
+          var anemometer = true;
+          var gun = false;
+          var machinegun = true;
+          var 
+
+   		 var currentValue = "";
+   		 var answer;
+   		 var response;
+          var score = 0;
+
+   		 while(!ended){
+   			 var rand = Math.floor((Math.random() * 10) + 1);
+    
+
+   			 if(rand > 0 && rand < 2){
+   				 currentValue = "Parachute";
+   				 answer = parachute;
+   			 }else if(rand > 2 && rand < 4){
+   				 currentValue = "Flying Machine";
+   				 answer = flyingmachine;
+   			 }else if(rand > 4 && rand < 6){
+   				 currentValue = "Printing Press";
+   				 answer = printingpress;
+   			 }else if(rand > 6 && rand < 8){
+   				 currentValue = "Self-Propelled Cart";
+   				 answer = selfpropelledcart;
+   			 }else if(rand){
+   				 currentValue = "Tank";
+   				 answer = tank;
+   			 }
+
+   			if(currentValue == "Machine Gun"){
+               var c = confirm("Did Da Vinci invent the " + currentValue + "? (Also called the 33-barrelled organ)");
+            }else{
+               var c = confirm("Did Da Vinci invent the " + currentValue + "?");
+            }
+
+   			 if(c == answer){
+   				 score++;
+   			 }else{
+                break;
+   			 }
+   		 }
+
+          document.write("<h2>Nice. You lost with " + score + " points.</h2>");
+   	 </script></center>
+    </body>    
+</html>
