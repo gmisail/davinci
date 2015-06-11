@@ -1,21 +1,18 @@
 <html>
-
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-</head>
-
 <body>
+    <!-- Game title and version, which are centered and made bold -->
     <center><h1><strong>Did Leonardo Da Vinci Invent This?</strong></h1></center>
   	<center><h4>Version 0.3</h4></center>
 
     <center>
         <script>
+            /* This boolean (true or false value) shows whether the game has ended, or if it is still going on */
             var ended = false;
-
+            
+            /* This is an array of all of the inventions */
             var values = ["Parachute", "Flying Machine", "Printing Press", "Self Propelled Cart", "Tank", "Diving Suit", "Submarine", "Helicopter", "Longbow", "Giant Crossbow", "Anemometer", "Gun", "Machine Gun"];
 
+            /* These are the answers for each invention. Each answer must be true or false */
             var parachute = true;
             var flyingmachine = true;
             var printingpress = false;
@@ -30,22 +27,33 @@
             var gun = false;
             var machinegun = true;
 
+            /* This is the invention for each round */
             var currentValue;
 
-            //SELECT RANDOM VALUE FROM ARRAY
+            /* This function chooses a random invention from the invention array */
             var inventions = function() {
+                /* Easily the most difficult part of the program. */
+                /* First, Math.random() * values.length generates a random number within the range of 0 to how many items in the array there are. This generated number is then rounded with Math.floor */
+                /* This final value is then accessed in the array. For example, if the generated number is 1, then the currentValue would be equal to "Flying Machine". (Arrays count up from 0. So instead of 1, 2, 3 like we count, it goes like 0, 1, 2, 3) */
                 currentValue = values[Math.floor(Math.random() * values.length)];
                 return currentValue;
             };
-
+            
+            /* This is the answer for each round */
             var answer;
-            var response;
+            
+            /* When the game starts, the score should be 0 */
             var score = 0;
-
+    
+            /* While the game has not ended, keep repeating this block */
             while (!ended) {
+                
+                /* Select an invention from the array */
                 inventions();
-
+                
+                /* If the invention is "Parachute" for example, make the answer true. */
                 if (currentValue == "Parachute") {
+                    /* The 'answer' variable is the answer for the round. The 'parachute' variable in this case is either true or false, which is the answer for the invention. */
                     answer = parachute;
                 } else if (currentValue == "Flying Machine") {
                     answer = flyingmachine;
@@ -76,16 +84,21 @@
                 if (currentValue == "Machine Gun") {
                     var c = confirm("Did Da Vinci invent the " + currentValue + "? (Also called the 33-barrelled organ)");
                 } else {
+                    /* confirm("some string") creates a popup window with 2 buttons, Ok (true) and Cancel (false) */
                     var c = confirm("Did Da Vinci invent the " + currentValue + "?");
                 }
-
+    
+                /* If the answer chosen from the popup is equal to the actual answer do this */
                 if (c == answer) {
+                    /* The ++ symbol adds one to an integer value. So in this case, if you get it right, add a point.*/
                     score++;
                 } else {
+                    /* 'break' end the while loop, ending the game. */
                     break;
                 }
             }
-
+            
+            /* This adds a HTML losing message to the site, displaying the score */
             document.write("<h2>Nice. You lost with " + score + " points.</h2>");
         </script>
     </center>
